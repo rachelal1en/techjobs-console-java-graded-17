@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * Created by LaunchCode
@@ -50,13 +47,9 @@ public class TechJobs {
                     ArrayList<String> tempPrint = new ArrayList<>();
                     for (String item : results) {
                         tempPrint.add(item);
-//                        System.out.println(item);
                     }
                     tempPrint.sort(null);
-//                    for (String i : tempPrint) {
-//                        System.out.println(tempPrint[i]);
-//                    }
-                    tempPrint.forEach((v) -> System.out.println(v));
+                    tempPrint.forEach((entry) -> System.out.println(entry));
                 }
 
             } else { // choice is "search"

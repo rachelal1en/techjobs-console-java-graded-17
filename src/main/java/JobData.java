@@ -99,10 +99,10 @@ public class JobData {
 
         for (HashMap<String, String> entry : allJobs){
             boolean found = false;
-            for (String column : entry.keySet()){
-                String columnValue = entry.get(column);
+            for (String line : entry.keySet()){
+                String foundValue = entry.get(line);
 
-                if (columnValue.toLowerCase().contains(value.toLowerCase())){
+                if (foundValue.toLowerCase().contains(value.toLowerCase())){
                     found = true;
                 }
             }
