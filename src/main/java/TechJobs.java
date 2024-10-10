@@ -47,9 +47,16 @@ public class TechJobs {
                     System.out.println("\n*** All " + columnChoices.get(columnChoice) + " Values ***");
 
                     // Print list of skills, employers, etc
+                    ArrayList<String> tempPrint = new ArrayList<>();
                     for (String item : results) {
-                        System.out.println(item);
+                        tempPrint.add(item);
+//                        System.out.println(item);
                     }
+                    tempPrint.sort(null);
+//                    for (String i : tempPrint) {
+//                        System.out.println(tempPrint[i]);
+//                    }
+                    tempPrint.forEach((v) -> System.out.println(v));
                 }
 
             } else { // choice is "search"
@@ -62,7 +69,7 @@ public class TechJobs {
                 String searchTerm = in.nextLine();
 
                 if (searchField.equals("all")) {
-                    System.out.println("Search all fields not implemented yet.");
+                    printJobs(JobData.findByValue(searchTerm));
                 } else {
                     printJobs(JobData.findByColumnAndValue(searchField, searchTerm));
                 }
@@ -119,7 +126,17 @@ public class TechJobs {
 
     // Print a list of jobs
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
+        if (someJobs.isEmpty()){
+            System.out.print("No Results");
+            return;
+        }
 
-        System.out.println("printJobs is not implemented yet");
+        for (HashMap<String,String> job : someJobs) {
+            System.out.println("\n*****");
+            for (Map.Entry<String, String> entry : job.entrySet()){
+                System.out.println(entry.getKey() + ": " + entry.getValue());
+            }
+            System.out.println("*****");
+        }
     }
 }
